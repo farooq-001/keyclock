@@ -32,7 +32,6 @@ sudo mv /opt/keycloak-oidc-js-adapter-$KEYCLOAK_VERSION $KEYCLOAK_DIR
 
 # Configure Keycloak
 echo "Configuring Keycloak..."
-sudo mkdir -p $KEYCLOAK_DIR/conf
 sudo tee $KEYCLOAK_DIR/conf/keycloak.conf > /dev/null << EOF
 keycloak.database.url=jdbc:postgresql://localhost:5432/$DB_NAME
 keycloak.database.user=$DB_USER
@@ -50,11 +49,12 @@ After=network.target
 # User=keycloak
 # Group=keycloak
 Environment=JAVA_HOME=$JAVA_HOME
-ExecStart=$KEYCLOAK_DIR/bin/kc.sh start-dev
+ExecStart=/opt/keycloak/bin/kc.sh start-dev
 Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
+
 EOF
 
 # Reload Systemd and Start Keycloak
