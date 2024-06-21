@@ -49,7 +49,7 @@ After=network.target
 # User=keycloak
 # Group=keycloak
 Environment=JAVA_HOME=$JAVA_HOME
-ExecStart=/opt/keycloak/bin/kc.sh start-dev
+ExecStart=$KEYCLOAK_DIR/bin/kc.sh start-dev
 Restart=on-failure
 
 [Install]
