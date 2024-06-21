@@ -1,5 +1,5 @@
 # source: https://www.keycloak.org/downloads
-# 
+# https://github.com/keycloak/keycloak/releases/download/25.0.1/keycloak-25.0.1.tar.gz
 #!/bin/bash
 
 # Variables
