@@ -1,3 +1,5 @@
+# source: https://www.keycloak.org/downloads
+# 
 #!/bin/bash
 
 # Variables
@@ -66,3 +68,4 @@ echo "Verifying Keycloak status..."
 sudo systemctl status keycloak
 
 echo "Keycloak setup completed successfully!"
+echo "http://localhost:8080"
