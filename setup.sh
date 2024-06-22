@@ -9,7 +9,7 @@ DB_PASSWORD="farooq01@"
 KEYCLOAK_PASSWORD="farooq001@"
 KEYCLOAK_VERSION="25.0.1"
 KEYCLOAK_DIR="/opt/keycloak"
-JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
+JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 
 # Install PostgreSQL
 echo "Installing PostgreSQL..."
@@ -46,10 +46,12 @@ Description=Keycloak Server
 After=network.target
 
 [Service]
-# User=keycloak
-# Group=keycloak
+User=root
+Group=root
 Environment=JAVA_HOME=$JAVA_HOME
+Environment=KEYCLOAK_HOME=$KEYCLOAK_DIR
 ExecStart=$KEYCLOAK_DIR/bin/kc.sh start-dev
+Environment=HOSTNAME=localhost
 Restart=on-failure
 
 [Install]
